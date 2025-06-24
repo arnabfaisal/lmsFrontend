@@ -141,8 +141,8 @@ function Landingpage() {
           <div className="flex flex-1 flex-col items-center">
             <div>
               <h1 className="text-4xl text-center sm:text-4xl md:text-4xl max-w-xl mx-auto font-myfamily">
-                For managing your <span className="myfontdesign">expense</span>{" "}
-                and tracking your <span className="myfontdesign">goals</span>{" "}
+                For enrolling your <span className="myfontdesign">Course</span>{" "}
+                and tracking your <span className="myfontdesign">progress</span>{" "}
                 with ease
               </h1>
             </div>
@@ -270,11 +270,11 @@ function Landingpage() {
         </motion.div>
         <div className="hidden md:block w-full flex-1">
           <div className="bg-white h-[500px] rounded-2xl overflow-hidden shadow-lg shadow-mycolor flex items-center justify-center mx-auto">
-            <img
+            {/* <img
               src="./src/assets/charts.png"
               alt="chart"
               className="w-full h-full object-cover p-4"
-            />
+            /> */}
           </div>
         </div>
       </section>
@@ -282,11 +282,11 @@ function Landingpage() {
       <section className="sneakpeak mt-5 flex flex-col md:flex-row md:mt-50 md:justify-between gap-10 items-center">
         <div className="flex-1 w-full">
           <div className="bg-white h-[500px] rounded-2xl overflow-hidden shadow-lg shadow-mycolor flex items-center justify-center mx-auto">
-            <img
+            {/* <img
               src="./src/assets/goal.png"
               alt="goal"
               className="w-full h-full object-cover p-4"
-            />
+            /> */}
           </div>
         </div>
 
@@ -299,7 +299,7 @@ function Landingpage() {
         >
           <div className="hidden md:block w-full flex-1">
             <h1 className="md: text-3xl font-myfamily">
-              Every transaction brings you closer and view your full history
+              Every course brings you closer and view your full history
               once a <span className="myfontdesign">goal</span> is complete.
             </h1>
           </div>
