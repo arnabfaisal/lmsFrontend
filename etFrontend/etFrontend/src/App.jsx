@@ -10,8 +10,6 @@ import Landingpage from "./pages/Landingpage";
 import Navbar from "./pages/Navbar";
 import Footer from "./pages/Footer";
 import Dashboard from "./pages/Dashboard";
-import Transaction from "./pages/Transaction";
-import Goal from "./pages/Goal";
 
 import Courses from "./pages/Courses";
 import Profile from "./pages/Profile";

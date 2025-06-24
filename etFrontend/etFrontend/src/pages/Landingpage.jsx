@@ -1,8 +1,8 @@
-import React ,{useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { toast } from 'sonner';
+import { toast } from "sonner";
 import {
   Dialog,
   DialogContent,
@@ -36,11 +36,14 @@ function Landingpage() {
     const token = localStorage.getItem("access");
     const refresh = localStorage.getItem("refresh");
     try {
-      const res = await fetch("http://lms-backend-xpwc.onrender.com/api/user/profile/teacher/", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await fetch(
+        "http://lms-backend-xpwc.onrender.com/api/user/profile/teacher/",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       if (!res.ok) throw new Error("Failed to fetch user");
 
@@ -61,6 +64,7 @@ function Landingpage() {
     password2: "",
     first_name: "",
     last_name: "",
+    role: ""
   });
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -88,19 +92,20 @@ function Landingpage() {
         throw new Error("Registration failed");
       }
 
-
-
       const formData2 = {
-        "email": formData['email'],
-        "password": formData['password'],
-      }
-      const response = await fetch("http://lms-backend-xpwc.onrender.com/api/token", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData2),
-      });
+        email: formData["email"],
+        password: formData["password"],
+      };
+      const response = await fetch(
+        "http://lms-backend-xpwc.onrender.com/api/token",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData2),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Login failed");
@@ -125,6 +130,7 @@ function Landingpage() {
       password2: "",
       first_name: "",
       last_name: "",
+      role : "",
     });
   };
 
@@ -151,7 +157,12 @@ function Landingpage() {
               <div>
                 <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                   <DialogTrigger asChild>
-                    <Button className="lg" onClick={() => setIsDialogOpen(true)}>Join now</Button>
+                    <Button
+                      className="lg"
+                      onClick={() => setIsDialogOpen(true)}
+                    >
+                      Join now
+                    </Button>
                   </DialogTrigger>
                   <DialogContent className="mydivdesign">
                     <DialogHeader>
@@ -200,7 +211,7 @@ function Landingpage() {
                           value={formData.password}
                           onChange={handleChange}
                           required
-                        /> 
+                        />
                       </div>
                       <div className="flex flex-col">
                         <label
@@ -256,6 +267,27 @@ function Landingpage() {
                           required
                         />
                       </div>
+                      <div className="flex flex-col">
+                        <label
+                          htmlFor="role"
+                          className="mb-1 font-medium myfamily text-gray-800"
+                        >
+                          Role
+                        </label>
+                        <select
+                          id="role"
+                          name="role"
+                          value={formData.role}
+                          onChange={handleChange}
+                          className="border text-gray-800 border-mycolor rounded-2xl px-3 py-2 focus:outline-none focus:ring-mycolor bg-gray-100"
+                          required
+                        >
+                          <option value="">Select type</option>
+                          <option value="teacher">Teacher</option>
+                          <option value="student">Student</option>
+                        </select>
+                      </div>
+
                       <div>
                         <Button type="submit" className="w-full mt-3">
                           Register
@@ -299,8 +331,8 @@ function Landingpage() {
         >
           <div className="hidden md:block w-full flex-1">
             <h1 className="md: text-3xl font-myfamily">
-              Every course brings you closer and view your full history
-              once a <span className="myfontdesign">goal</span> is complete.
+              Every course brings you closer and view your full history once a{" "}
+              <span className="myfontdesign">goal</span> is complete.
             </h1>
           </div>
         </motion.div>
